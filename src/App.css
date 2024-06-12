@@ -7,6 +7,7 @@ header {
   background-color: rgb(225, 112, 104);
   padding: 20px;
   color: white;
+  width: 100%;
   text-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px;
 }
@@ -135,29 +136,33 @@ footer {
   margin-bottom: 100px;
 }
 
+@media (max-width: 768px){
+  .search-bar input {
+    width: 80%;
 
+  }
 
-/* .App-header {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  color: white;
-  padding: 20px;
+  .movie {
+    width: 45%;
+  }
+
 }
 
-@media (max-width: 600px) {
-  .movie-card {
+@media (max-width: 480px) {
+  header {
+    /* width: 100%; */
+    padding: 15px;
+  }
+
+  .option-btn button {
+    width: 80%;
+  }
+
+  .movie {
     width: 100%;
   }
 
-  .search-bar {
-    flex-direction: column;
-    gap: 10px;
+  .search-bar input {
+    width: 100%;
   }
-
-  .search-bar form {
-    flex-direction: column;
-  }
-} */
+}

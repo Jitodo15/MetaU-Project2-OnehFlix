@@ -16,6 +16,7 @@ const App = () => {
   const [url, setUrl] = useState(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${pageNumber}`)
   const [displayModal, setDisplayModal] = useState(false);
   const [movieID, setMovieID] = useState();
+  const [sortOption, setSortOption] = useState('');
 
   useEffect(() => {
     const options = {
@@ -90,12 +91,23 @@ const App = () => {
     setDisplayModal(false);
   }
 
-  function handleSort(){
+  function handleSortOption(event){
 
-      setUrl(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${pageNumber}`)
-      setMovies(movies.sort((a, b) => a.popularity - b.popularity))
+    setSortOption(event.target.value);
+    let sortedMovies;
 
+    if(event.target.value === 'Popular Descending'){
+      sortedMovies = [...movies].sort((a,b) => (b.popularity - a.popularity))
+    } else if(event.target.value === 'Release Date Descending'){
+      sortedMovies = [...movies].sort((a,b) => (new Date(b.release_date) - new Date(a.release_date)))
+    } else if(event.target.value === 'Rating Descending'){
+      sortedMovies = [...movies].sort((a,b) => (b.vote_average - a.vote_average))
+    } else {
+      sortedMovies = [...movies]
+    }
 
+    setMovies(sortedMovies);
+    console.log(sortedMovies)
 
 
   }
@@ -103,7 +115,7 @@ const App = () => {
 
   return (
     <div className="App">
-        <Header input={input} sort={handleSort} handleNowPlaying={handleNowPlaying} handleSearchOption={handleSearchOption}/>
+        <Header input={input} handleSort={handleSortOption} handleNowPlaying={handleNowPlaying} handleSearchOption={handleSearchOption}/>
 
         <main>
 

@@ -37,4 +37,22 @@
     padding: 10px 20px;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px;
 
+
+}
+
+@media (max-width: 768px){
+
+
+    .modal-content {
+      width: 80%;
+    }
+
+
+}
+
+
+@media (max-width: 480px){
+    .modal-content {
+        width: 95%;
+    }
 }

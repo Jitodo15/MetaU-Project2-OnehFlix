@@ -8,11 +8,11 @@ function Header(props) {
             </div>
             <div className="search-sort">
 
-                <select id="choice">
+                <select id="choice" onChange={props.handleSort}>
                     <option>Sort by</option>
-                    <option>Release Date Descending</option>
-                    <option onClick={props.sort}>Popular Descending</option>
-                    <option>Rating Descending</option>
+                    <option value="Release Date Descending">Release Date Descending</option>
+                    <option value="Popular Descending">Popular Descending</option>
+                    <option value="Rating Descending">Rating Descending</option>
                 </select>
 
                 <div className="option-btn">
