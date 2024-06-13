@@ -4,6 +4,7 @@ function Header(props) {
     return (
         <header>
             <div className="title">
+                <i className="fa-solid fa-bars"></i>
                 <h1>Flixster</h1>
             </div>
             <div className="search-sort">
@@ -15,10 +16,10 @@ function Header(props) {
                     <option value="Rating Descending">Rating Descending</option>
                 </select>
 
-                <div className="option-btn">
-                    <button onClick={props.handleNowPlaying}>Now Playing</button>
-                    <button onClick={props.handleSearchOption}>Search</button>
-                </div>
+
+                <a onClick={props.handleNowPlaying}>Now Playing</a>
+                <a onClick={props.handleSearchOption}>Search</a>
+
             </div>
 
 

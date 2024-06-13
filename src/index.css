@@ -1,6 +1,15 @@
 body {
   margin: 0;
+  padding: 0;
+  width: 100%;
   font-family: Arial, sans-serif;
   height: 100%;
+  box-sizing: border-box;
   background-color: black;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }

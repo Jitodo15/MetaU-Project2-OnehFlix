@@ -10,7 +10,7 @@ function MovieList(props) {
 
         return (
 
-            <MovieCard key={index} title={movie.original_title} path={"https://image.tmdb.org/t/p/w500"+movie.poster_path} rating={movie.vote_average} releaseDate={movie.release_date} overview={movie.overview} showModal={() =>props.displayModal(movie.id)} />
+            <MovieCard key={index} title={movie.original_title} path={"https://image.tmdb.org/t/p/w500"+movie.poster_path} rating={movie.vote_average} releaseDate={movie.release_date} overview={movie.overview} showModal={() =>props.displayModal(movie.id)} watchedMovies={() => props.watched(movie.id)} />
 
         )
     }

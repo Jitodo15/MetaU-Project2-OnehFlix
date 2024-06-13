@@ -5,6 +5,7 @@ import MovieList from '/src/MovieList'
 import Footer from '/src/Footer'
 import SearchBar from '/src/SearchBar'
 import Modal from './Modal'
+import SideBar from './SideBar'
 
 
 const App = () => {
@@ -17,6 +18,8 @@ const App = () => {
   const [displayModal, setDisplayModal] = useState(false);
   const [movieID, setMovieID] = useState();
   const [sortOption, setSortOption] = useState('');
+  const [watchedMovies, setWatchedMovies] = useState([]);
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   useEffect(() => {
     const options = {
@@ -45,19 +48,14 @@ const App = () => {
   }, [pageNumber, url]);
 
   function handleNowPlaying(){
-
     setPageNumber(1)
-    // setMovies([]);
     setUrl(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${pageNumber}`)
     setNowPlaying(true);
     setSearch(false);
-
   }
 
 
   function handleLoadMore(){
-
-    // setMovies([])
     setPageNumber(prevPageNumber => prevPageNumber + 1);
     setUrl(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${pageNumber+1}`)
 
@@ -83,8 +81,6 @@ const App = () => {
   function handleCardClick(id){
      setDisplayModal(true);
      setMovieID(id);
-
-
   }
 
   function handleCloseModal(){
@@ -92,7 +88,6 @@ const App = () => {
   }
 
   function handleSortOption(event){
-
     setSortOption(event.target.value);
     let sortedMovies;
 
@@ -107,30 +102,37 @@ const App = () => {
     }
 
     setMovies(sortedMovies);
-    console.log(sortedMovies)
+  }
 
+  function handleWatchedMovies(id){
 
+    setWatchedMovies(prevIds => [...prevIds, id]);
+    console.log(watchedMovies)
   }
 
 
   return (
     <div className="App">
+
         <Header input={input} handleSort={handleSortOption} handleNowPlaying={handleNowPlaying} handleSearchOption={handleSearchOption}/>
 
+
+
         <main>
+        <SideBar watchedMovies={watchedMovies} data={movies}/>
 
           {nowPlaying ?
            <>
               {displayModal ? <Modal closeModal={handleCloseModal} id={movieID} data={movies} />: null}
 
-              <MovieList data={movies} displayModal={handleCardClick}/>
+              <MovieList data={movies} displayModal={handleCardClick} watched={handleWatchedMovies}/>
               <button className='load-button' onClick={handleLoadMore}>Load More</button>
            </> :
            <>
 
               {displayModal ? <Modal closeModal={handleCloseModal} id={movieID} data={movies} />: null}
               <SearchBar input={input} search={handleInputSearch}/>
-              <MovieList data={movies} displayModal={handleCardClick}/>
+              <MovieList data={movies} displayModal={handleCardClick} watched={handleWatchedMovies}/>
            </>
             }
 
