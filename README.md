@@ -48,25 +48,20 @@ Deployed Application (optional): [Flixster Deployed Site](https://metau-project2
 `https://www.loom.com/embed/c2c79dc3d85f443d961fee9faabb80d1?sid=5e5a85e8-7fbb-408b-acc6-d5c9966ad22e`
 
 `ADD_EMBEDDED_CODE_HERE`
-<div style="position: relative; padding-bottom: 52.5%; height: 0;">
-  <iframe src="https://www.loom.com/embed/c2c79dc3d85f443d961fee9faabb80d1?sid=5e5a85e8-7fbb-408b-acc6-d5c9966ad22e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-</div>
+https://www.loom.com/embed/c2c79dc3d85f443d961fee9faabb80d1?sid=5e5a85e8-7fbb-408b-acc6-d5c9966ad22e
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
 The labs on props and hooks really helped me in implementing a lot like my API,and passing data from one component to another. I had issues with my modal and switching between the search and now playing display. I also had issues with adding my watched and favorite movies to the sidebar.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
-  
-Add your response here
+
 I would have done my styling differently, like added more features and some freestyling. I focused more on my functionality and did my styling the way the sample wireframe looked. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
 I saw different beautiful styling I could have implemented but did not know how to but I have asked how to make those features and I plan to do it in my next week's project.
 
 
