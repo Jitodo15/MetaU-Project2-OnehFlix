@@ -9,13 +9,17 @@ function Header(props) {
                 <h1>OnéhFlix</h1>
             </div>
             <div className="search-sort">
-                <a onClick={props.handleNowPlaying}>Now Playing</a>
+                <button onClick={props.handleNowPlaying}>Now Playing</button>
+                <button onClick={props.handleSearchOption}>Search</button>
 
                 <select id="choice" onChange={props.handleSort}>
                     <option>Sort by</option>
-                    <option value="Release Date Descending">Release Date Descending</option>
-                    <option value="Popular Descending">Popular Descending</option>
-                    <option value="Rating Descending">Rating Descending</option>
+                    <option value="primary_release_date.asc">Release Date Ascending</option>
+                    <option value="primary_release_date.desc">Release Date Descending</option>
+                    <option value="popularity.asc">Popular Ascending</option>
+                    <option value="popularity.desc">Popular Descending</option>
+                    <option value="vote_average.asc">Vote Average Ascending</option>
+                    <option value="vote_average.desc">Vote Average Descending</option>
                 </select>
 
                 <select id="choice" onChange={props.handleFilter}>
@@ -28,7 +32,7 @@ function Header(props) {
                     <option value="27">Horror</option>
                 </select>
 
-                <a onClick={props.handleSearchOption}><i class="fa-solid fa-magnifying-glass"></i></a>
+
             </div>
         </header>
     )

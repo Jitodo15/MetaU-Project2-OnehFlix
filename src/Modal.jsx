@@ -1,7 +1,5 @@
 import "./Modal.css"
-
 import { useState, useEffect } from "react"
-
 
 function Modal(props) {
     const [background_image, setBackgroundImage] = useState("")
@@ -27,6 +25,7 @@ function Modal(props) {
         10752: "War",
         37: "Western",
     };
+
     const backgroundStyle = {
         backgroundImage: `url(${background_image})`,
         backgroundSize: "cover",
@@ -59,12 +58,7 @@ function Modal(props) {
             .catch(err => console.error(err));
     }, []);
 
-
-
-
-
     function mapGenres(genres){
-
         return genres.map(genre => Genres[genre]).join(", ")
     }
 

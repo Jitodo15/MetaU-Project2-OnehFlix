@@ -1,4 +1,5 @@
 import "./WatchedAndFavMovie.css";
+
 function WatchedAndFavMovie(props){
     return(
         <div className="watched-movie">

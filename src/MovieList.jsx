@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
 
-// import { M } from "vite/dist/node/types.d-aGj9QkWt";
-
 function MovieList(props) {
 
     function createCards(movie, index) {
@@ -22,12 +20,10 @@ function MovieList(props) {
         )
     }
 
-
     return (
         <div className="movie-cards">
             {
                 props.data.map(createCards)
-
             }
         </div>
     )

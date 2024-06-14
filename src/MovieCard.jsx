@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 
-
 function MovieCard(props){
-
     const [isFav, setIsFav] = useState(false);
     const [isWatched, setIsWatched] = useState(false);
 

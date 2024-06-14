@@ -44,9 +44,6 @@ const App = () => {
       .catch(err => console.error(err))
 
     }
-
-
-
   }, [pageNumber, url]);
 
   function handleNowPlaying(){
@@ -67,17 +64,20 @@ const App = () => {
 
   function handleSearchOption(){
     setDisplaySidebar(false)
-    setMovies([])
     setSearch(true);
     setNowPlaying(false);
   }
 
-  function handleInputSearch(event){
-    setInput(event.target.value);
-    setUrl(`https://api.themoviedb.org/3/search/movie?query=${input}&include_adult=false&language=en-US&page=1`)
+  function handleInputSearch(searchValue){
     setMovies([]);
     setSearch(true);
     setNowPlaying(false);
+    setUrl(`https://api.themoviedb.org/3/search/movie?query=${searchValue}&include_adult=false&language=en-US&page=1`)
+  }
+
+  function handleSearchBarEmpty(){
+    setMovies([]);
+    setUrl(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`)
   }
 
   function handleCardClick(id){
@@ -91,19 +91,7 @@ const App = () => {
 
   function handleSortOption(event){
     setSortOption(event.target.value);
-    let sortedMovies;
-
-    if(event.target.value === 'Popular Descending'){
-      sortedMovies = [...movies].sort((a,b) => (b.popularity - a.popularity))
-    } else if(event.target.value === 'Release Date Descending'){
-      sortedMovies = [...movies].sort((a,b) => (new Date(b.release_date) - new Date(a.release_date)))
-    } else if(event.target.value === 'Rating Descending'){
-      sortedMovies = [...movies].sort((a,b) => (b.vote_average - a.vote_average))
-    } else {
-      sortedMovies = [...movies]
-    }
-
-    setMovies(sortedMovies);
+    setUrl(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=${sortOption}`)
   }
 
   function handleFilterOption(event){
@@ -120,6 +108,8 @@ const App = () => {
       setFavMovies(prevIds => [...prevIds, id]);
     }
   }
+
+
 
   function handleWatchedMovies(id){
     if(watchedMovies.includes(id)){
@@ -156,7 +146,7 @@ const App = () => {
             </> :
             <>
                 {displayModal ? <Modal closeModal={handleCloseModal} id={movieID} data={movies} />: null}
-                <SearchBar input={input} search={handleInputSearch}/>
+                <SearchBar input={input} search={handleInputSearch} searchBarEmpty={handleSearchBarEmpty}/>
                 <MovieList data={movies} displayModal={handleCardClick} watched={handleWatchedMovies} favorites={handleFavMovies}/>
             </>
             }
