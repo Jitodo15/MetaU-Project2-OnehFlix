@@ -1,8 +1,84 @@
-# React + Vite
+## Unit Assignment: Flixster
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Submitted by: **Joy Itodo**
 
-Currently, two official plugins are available:
+Estimated time spent: **30** hours spent in total
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Deployed Application (optional): [Flixster Deployed Site](https://metau-project2-onehflix.onrender.com)
+
+### Application Features
+
+#### CORE FEATURES
+
+
+- [X] **Display Movies**
+  - [X] Users can view a list of current movies from The Movie Database API.
+  - [X] For each movie displayed, users can see its title, poster image, and votes.
+  - [X] Users can load more current movies by clicking a button at the bottom of the list (page should not be reloaded).
+- [X] **Search Functionality**
+  - [X] Users can search for movies and view the results in a grid.
+  - [X] Users can clear results and view previous current movies displayed.
+- [X] **Accessibility Features**
+  - [X] Website implements accessibility features (semantic HTML, color contrast, font sizing, alt text for images).
+- [X] **Responsive Design**
+  - [X] Website implements responsive web design.
+- [X] **Movie Details**
+  - [X] Users can view more details about a movie in a popup, such as runtime in minutes, backdrop poster, release date, genres, and/or an overview.
+- [X] **Sorting Options**
+  - [X] Users can click on a filter by drop down to sort product by type (alphabetic, release date, rating).
+- [X] **Layout**
+  - [X] Website displays header, banner, search, movie grid, about, contact, and footer section.
+
+#### STRETCH FEATURES
+
+- [X] **Deployment**
+  - [X] Website is deployed via Render.
+- [X] **Embedded Movie Trailers**
+  - [X] Within the popup displaying a movie's details, users can play the movie trailer.
+- [X] **Watched Checkbox**
+  - [X] For each movie displayed, users can mark the movie as watched.
+- [X] **Favorite Button**
+  - [X] For each movie displayed, users can favorite the movie.
+- [X] **Sidebar**
+  - [X] Users can open a sidebar
+  - [X] The sidebar displays the user's favorited and watched movies
+
+### Walkthrough Video
+
+`https://www.loom.com/embed/c2c79dc3d85f443d961fee9faabb80d1?sid=5e5a85e8-7fbb-408b-acc6-d5c9966ad22e`
+
+`ADD_EMBEDDED_CODE_HERE`
+<div style="position: relative; padding-bottom: 52.5%; height: 0;">
+  <iframe src="https://www.loom.com/embed/c2c79dc3d85f443d961fee9faabb80d1?sid=5e5a85e8-7fbb-408b-acc6-d5c9966ad22e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+
+### Reflection
+
+* Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
+
+Add your response here
+The labs on props and hooks really helped me in implementing a lot like my API,and passing data from one component to another. I had issues with my modal and switching between the search and now playing display. I also had issues with adding my watched and favorite movies to the sidebar.
+
+* If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
+  
+Add your response here
+I would have done my styling differently, like added more features and some freestyling. I focused more on my functionality and did my styling the way the sample wireframe looked. 
+
+* Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
+
+Add your response here
+I saw different beautiful styling I could have implemented but did not know how to but I have asked how to make those features and I plan to do it in my next week's project.
+
+
+### Open-source libraries used
+
+- Add any links to open-source libraries used in your project.
+  `https://fontawesome.com/icons`
+
+### Shout out
+
+Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Thomas
+Marvin
+Brian
+My table members (Ogeena, Sa'Ja and Aniyah)
