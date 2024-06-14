@@ -1,5 +1,5 @@
-import "./WatchedMovie.css";
-function WatchedMovie(props){
+import "./WatchedAndFavMovie.css";
+function WatchedAndFavMovie(props){
     return(
         <div className="watched-movie">
             <img className="watched-movie-image" src={"https://image.tmdb.org/t/p/w500"+props.movieImage}/>
@@ -8,4 +8,4 @@ function WatchedMovie(props){
     )
 }
 
-export default WatchedMovie;
+export default WatchedAndFavMovie;

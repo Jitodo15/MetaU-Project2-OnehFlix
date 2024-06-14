@@ -5,7 +5,6 @@ function MovieCard(props){
 
     const [isFav, setIsFav] = useState(false);
     const [isWatched, setIsWatched] = useState(false);
-    const [favoriteMovies, setFavoriteMovies] = useState([]);
 
     return(
 
@@ -15,26 +14,32 @@ function MovieCard(props){
             <p>Rating: <span>{props.rating}</span></p>
 
             <div className="favorite-watched-icons">
-                <a className="favortite-icon"  onClick={(e) => {
-                        e.stopPropagation();
-                        props.watchedMovies();
-                        setIsFav(!isFav);}}
-                        >{isFav ? <i className="fa-solid fa-star"></i>: <i className="fa-regular fa-star"></i>}</a>
+                <a className="favortite-icon"
+                    onClick={(e) => {
+                            e.stopPropagation();
+                            props.favMovies();
+                            setIsFav(!isFav);
+                    }}>
+                        {isFav ?
+                            <i className="fa-solid fa-star"></i>:
+                             <i className="fa-regular fa-star"></i>
+                        }
+                </a>
 
-                <p>Watched: <span className="watched" onClick={(e) => {
-                        e.stopPropagation();
-                        props.watchedMovies();
-                        console.log(props.watchedMovies);
-                        setIsWatched(!isWatched);}}>{isWatched? <i className="fa-solid fa-square-check"></i> : <i className="fa-regular fa-square-check"></i>}</span></p>
-
-
-
-
-
-
+                <p>Watched:
+                    <span className="watched"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            props.watchedMovies();
+                            setIsWatched(!isWatched);
+                        }}>
+                            {isWatched?
+                                <i className="fa-solid fa-square-check"></i> :
+                                <i className="fa-regular fa-square-check"></i>
+                            }
+                    </span>
+                </p>
             </div>
-
-
         </div>
     )
 }

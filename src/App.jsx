@@ -18,8 +18,10 @@ const App = () => {
   const [displayModal, setDisplayModal] = useState(false);
   const [movieID, setMovieID] = useState();
   const [sortOption, setSortOption] = useState('');
+  const [filterOption, setFilterOption] = useState('');
+  const [favMovies, setFavMovies] = useState([]);
   const [watchedMovies, setWatchedMovies] = useState([]);
-  const [favoriteMovies, setFavoriteMovies] = useState([]);
+  const [displaySidebar, setDisplaySidebar] = useState(true);
 
   useEffect(() => {
     const options = {
@@ -48,6 +50,8 @@ const App = () => {
   }, [pageNumber, url]);
 
   function handleNowPlaying(){
+    setWatchedMovies([]);
+    setDisplaySidebar(true);
     setPageNumber(1)
     setUrl(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${pageNumber}`)
     setNowPlaying(true);
@@ -62,15 +66,13 @@ const App = () => {
   }
 
   function handleSearchOption(){
+    setDisplaySidebar(false)
     setMovies([])
     setSearch(true);
     setNowPlaying(false);
-
-
   }
 
   function handleInputSearch(event){
-
     setInput(event.target.value);
     setUrl(`https://api.themoviedb.org/3/search/movie?query=${input}&include_adult=false&language=en-US&page=1`)
     setMovies([]);
@@ -79,8 +81,8 @@ const App = () => {
   }
 
   function handleCardClick(id){
-     setDisplayModal(true);
-     setMovieID(id);
+    setDisplayModal(true);
+    setMovieID(id);
   }
 
   function handleCloseModal(){
@@ -104,45 +106,64 @@ const App = () => {
     setMovies(sortedMovies);
   }
 
-  function handleWatchedMovies(id){
+  function handleFilterOption(event){
+    setFilterOption(event.target.value);
+    setUrl(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&without_genres=${filterOption}`)
 
-    setWatchedMovies(prevIds => [...prevIds, id]);
-    console.log(watchedMovies)
   }
+
+
+  function handleFavMovies(id){
+    if(favMovies.includes(id)){
+      setFavMovies(prevIds => prevIds.filter(prevId => prevId !== id));
+    } else{
+      setFavMovies(prevIds => [...prevIds, id]);
+    }
+  }
+
+  function handleWatchedMovies(id){
+    if(watchedMovies.includes(id)){
+      setWatchedMovies(prevIds => prevIds.filter(prevId => prevId !== id));
+    } else{
+      setWatchedMovies(prevIds => [...prevIds, id]);
+    }
+  }
+
+  function handleDisplaySideBar(){
+    setDisplaySidebar(!displaySidebar);
+  }
+
 
 
   return (
     <div className="App">
 
-        <Header input={input} handleSort={handleSortOption} handleNowPlaying={handleNowPlaying} handleSearchOption={handleSearchOption}/>
-
-
-
+        <Header
+          handleSideBar={handleDisplaySideBar}
+          input={input} handleSort={handleSortOption}
+          handleFilter={handleFilterOption}
+          handleNowPlaying={handleNowPlaying}
+          handleSearchOption={handleSearchOption}
+        />
         <main>
-        <SideBar watchedMovies={watchedMovies} data={movies}/>
+            {displaySidebar ? <SideBar watchedMovies={watchedMovies} favMovies={favMovies} data={movies}/> : null}
+            {nowPlaying ?
+            <>
+                {displayModal ? <Modal closeModal={handleCloseModal} id={movieID} data={movies} />: null}
 
-          {nowPlaying ?
-           <>
-              {displayModal ? <Modal closeModal={handleCloseModal} id={movieID} data={movies} />: null}
-
-              <MovieList data={movies} displayModal={handleCardClick} watched={handleWatchedMovies}/>
-              <button className='load-button' onClick={handleLoadMore}>Load More</button>
-           </> :
-           <>
-
-              {displayModal ? <Modal closeModal={handleCloseModal} id={movieID} data={movies} />: null}
-              <SearchBar input={input} search={handleInputSearch}/>
-              <MovieList data={movies} displayModal={handleCardClick} watched={handleWatchedMovies}/>
-           </>
+                <MovieList data={movies} displayModal={handleCardClick} watched={handleWatchedMovies} favorites={handleFavMovies}/>
+                <button className='load-button' onClick={handleLoadMore}>Load More</button>
+            </> :
+            <>
+                {displayModal ? <Modal closeModal={handleCloseModal} id={movieID} data={movies} />: null}
+                <SearchBar input={input} search={handleInputSearch}/>
+                <MovieList data={movies} displayModal={handleCardClick} watched={handleWatchedMovies} favorites={handleFavMovies}/>
+            </>
             }
-
         </main>
-
         <Footer/>
     </div>
-
   )
-
 }
 
 export default App
