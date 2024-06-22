@@ -47,11 +47,11 @@ Deployed Application (optional): [Flixster Deployed Site](https://metau-project2
 
 
 <div>
-    <a href="https://www.loom.com/share/c2c79dc3d85f443d961fee9faabb80d1">
-      <p>OnehFlix - 14 June 2024 - Watch Video</p>
+    <a href="https://www.loom.com/share/83fafc42470944ac89328f2358dbd282">
+      <p>Library | Loom - 22 June 2024 - Watch Video</p>
     </a>
-    <a href="https://www.loom.com/share/c2c79dc3d85f443d961fee9faabb80d1">
-      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/c2c79dc3d85f443d961fee9faabb80d1-with-play.gif">
+    <a href="https://www.loom.com/share/83fafc42470944ac89328f2358dbd282">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/83fafc42470944ac89328f2358dbd282-with-play.gif">
     </a>
   </div>
 
